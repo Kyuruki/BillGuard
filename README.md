@@ -1,5 +1,4 @@
 # BuildGuard
 
 Medical Bill analyzer
-
-Testing connection
+Hosted on Vercel with Modal Backend
