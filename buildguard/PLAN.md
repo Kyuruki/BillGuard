@@ -92,14 +92,20 @@ blue+white design; process uploads in memory only, persist no PHI.
       `font-display: swap`, no render-blocking images / no layout shift. (Full Lighthouse
       pass → Phase 5.)
 - [x] Verified via headless Chromium: rendered head tags per route + all static files 200.
-- [ ] **CHECKPOINT** ✅ Phase 4 — pending user go-ahead to Phase 5 (verify, docs, deploy).
+- [x] **CHECKPOINT** ✅ Phase 4.
 
 ## Phase 5 — Verify, document, deploy
-- [ ] Verify: security headers present; CORS locked; rate limits return 429; no
-      secrets in client bundle; npm + pip audits clean; no PHI persisted;
-      keyboard + screen-reader pass on core flow; Lighthouse SEO/a11y/perf checked.
-- [ ] Finalize `CLAUDE.md`; write `SECURITY.md`; update `README` (setup + deploy).
-- [ ] Deploy to Modal + Vercel (honoring stop conditions).
+- [x] Verify (direct, with evidence): no secrets/endpoints in the client bundle;
+      pip deps OSV-clean; npm advisories are dev/build-only (vite/babel, not runtime);
+      **axe-core WCAG 2.1 A/AA = 0 violations** across all pages incl. results state;
+      **Lighthouse: a11y 100 / best-practices 100 / SEO 100 / perf 78**; **CLS 0.27 → 0.002**
+      (root cause: lazy Home shifted the footer — fixed by eager Home + font preload).
+      CORS/shared-secret/rate-limit/PHI verified in code (Phases 1–2). Live security-header
+      + 429 checks happen post-deploy (headers only apply on Vercel, not local preview).
+- [x] `SECURITY.md` written; root `README` + `buildguard/README` updated (setup + deploy);
+      `CLAUDE.md` finalized.
+- [ ] Deploy to Modal + Vercel — **STOP-AND-ASK**: needs the `proxy-auth` Modal secret +
+      Vercel `PROXY_SHARED_SECRET` first; deploying is the outward action to confirm.
 - [ ] **CHECKPOINT** ✅ Phase 5.
 
 ---

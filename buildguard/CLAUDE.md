@@ -249,10 +249,15 @@ Loaders — **already ran; do not re-run** (they `TRUNCATE`). Kept for provenanc
   reference it, so `modal deploy` fails if it's missing. Create it once (see secrets).
 - **`analyze.js` sets `bodyParser: false`** so formidable can read the raw stream and
   buffer it in memory. `generate-letter.js` relies on Vercel's default JSON body parse.
-- **Frontend stack (Phase 3):** React Router v7 (client routing, lazy route chunks),
-  Tailwind v4 via `@tailwindcss/vite` (tokens in `src/index.css` `@theme`, no
-  `tailwind.config.js`), IBM Plex Sans/Mono self-hosted via `@fontsource`. SPA deep
-  links work via the `rewrites` rule in `vercel.json` (excludes `/api/`).
+- **Frontend stack (Phase 3):** React Router v7 (client routing; **Home is eager**, the
+  rest are lazy route chunks — lazy-loading Home caused a footer CLS of 0.27), Tailwind v4
+  via `@tailwindcss/vite` (tokens in `src/index.css` `@theme`, no `tailwind.config.js`).
+  SPA deep links work via the `rewrites` rule in `vercel.json` (excludes `/api/`).
+- **Fonts (Phase 5):** IBM Plex Sans/Mono are self-hosted in `public/fonts/` with
+  `@font-face` in `src/fonts.css`; the above-the-fold weights (Sans 400/600, Mono 500) are
+  `<link rel=preload>`'d in `index.html`. This + eager Home gets CLS to ~0. (Earlier the
+  fonts came from `@fontsource` CSS imports — those packages are still installed but no
+  longer imported.)
 - **Tailwind v4 gotcha:** `transition-colors` includes `outline-color`, which made the
   upload dropzone's keyboard focus ring *fade in* (read as mid-transition). The ring is
   an unlayered rule in `index.css` (`input[type=file]:focus-visible + label`), and the
