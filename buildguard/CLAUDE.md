@@ -244,6 +244,19 @@ Loaders — **already ran; do not re-run** (they `TRUNCATE`). Kept for provenanc
   ```
   (`%LOCALAPPDATA%` == `C:\Users\karol\AppData\Local`.) Swap `deploy` for `serve`/`run`
   as needed.
+- **Deploying from WSL (charmap crash):** invoking the Windows `modal.exe` from a WSL
+  shell works (`/mnt/c/Users/karol/AppData/Local/Python/pythoncore-3.14-64/Scripts/modal.exe`),
+  but Python 3.14 defaults to **cp1252** for piped stdout and modal's ✓/box output then
+  crashes with `'charmap' codec can't encode ...`. Force UTF-8 **and** forward it through
+  WSL's interop with `WSLENV`:
+  ```bash
+  cd buildguard
+  MODAL=/mnt/c/Users/karol/AppData/Local/Python/pythoncore-3.14-64/Scripts/modal.exe
+  WSLENV=PYTHONIOENCODING/w:PYTHONUTF8/w PYTHONIOENCODING=utf-8 PYTHONUTF8=1 "$MODAL" deploy backend.py
+  ```
+  (Plain `PYTHONUTF8=1 modal.exe …` does **not** work — WSL doesn't forward env vars to
+  Windows processes without the `WSLENV=…/w` flag.) Also: from WSL the git remote is SSH
+  with no key, so push via HTTPS using gh's creds (`gh auth setup-git`).
 - **Upload contract:** browser → proxy is multipart field **`file`** (formidable); proxy
   → Modal is the **raw file bytes** in the request body (Modal reads `request.body()`,
   no multipart). Changing either side breaks upload. (Historically the proxy re-wrapped
