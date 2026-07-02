@@ -6,7 +6,7 @@ export const SITE = {
   tagline: "A second opinion on your medical bill.",
   description:
     "Upload a medical or dental bill and check its charges against official CMS Medicare reference rates. See likely overcharges and draft a dispute letter.",
-  url: "https://billguard.kyuruki.cc",
+  url: "https://medbill.kyuruki.cc",
 };
 
 // Primary nav (header). Privacy lives in the footer.

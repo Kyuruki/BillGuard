@@ -12,8 +12,8 @@ describe("brand name", () => {
     expect(JSON.stringify(content)).not.toContain("BillGuard");
   });
 
-  it("the canonical URL still points at the unchanged domain", () => {
-    expect(content.SITE.url).toBe("https://billguard.kyuruki.cc");
+  it("the canonical URL points at the current custom domain", () => {
+    expect(content.SITE.url).toBe("https://medbill.kyuruki.cc");
   });
 });
 

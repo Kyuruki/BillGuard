@@ -116,7 +116,7 @@ blue+white design; process uploads in memory only, persist no PHI.
       **Live-verified** on Vercel: all security headers present; direct-Modal + cross-origin
       → 403; full analyze → results (real CMS rates, no PHI) → generate-letter flow; rate
       limit 429 + Retry-After. Remaining (manual, non-code): attach custom domain
-      `billguard.kyuruki.cc` in Vercel + Cloudflare DNS.
+      `medbill.kyuruki.cc` in Vercel + Cloudflare DNS.
 - [x] **CHECKPOINT** ✅ Phase 5 — hardening + rebuild complete and live.
 
 ---

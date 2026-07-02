@@ -5,7 +5,7 @@
 // so Modal can verify the caller. Modal URLs and the allowlist are env-overridable.
 
 const DEFAULT_ALLOWED_ORIGINS = [
-  "https://billguard.kyuruki.cc",
+  "https://medbill.kyuruki.cc",
   "https://buildguard-alpha.vercel.app",
   "https://buildguard-kyurukis-projects.vercel.app",
   "https://buildguard-git-main-kyurukis-projects.vercel.app",

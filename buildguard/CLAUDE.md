@@ -151,7 +151,7 @@ rate_source, medicare_rate, overcharge_amount, overcharge_multiple`.
 - `PROXY_SHARED_SECRET` → same value as the Modal `proxy-auth` secret (the proxy sends
   it to Modal as `X-Proxy-Secret`). If unset, Modal fails open with a warning.
 - `ALLOWED_ORIGINS` *(optional)* → comma-separated Origin allowlist override. Defaults
-  (in `lib/proxy.js`) already include `billguard.kyuruki.cc` + the `.vercel.app` aliases,
+  (in `lib/proxy.js`) already include `medbill.kyuruki.cc` + the `.vercel.app` aliases,
   plus any `*.kyuruki.cc` and this project's `buildguard-*.vercel.app` preview URLs.
 - `MODAL_ANALYZE_URL`, `MODAL_LETTER_URL` *(optional)* → override the Modal endpoint URLs.
 
@@ -309,7 +309,7 @@ Loaders — **already ran; do not re-run** (they `TRUNCATE`). Kept for provenanc
   `lastmod` on content changes), `llms.txt`, `og.png`, icons, `site.webmanifest`.
 - **Regenerating icons/OG:** they were rendered from inline SVG/HTML via headless
   Chromium (see session scratchpad `pwtest/assets.mjs` + `og.mjs`) — re-render if the
-  mark or tagline changes. The canonical domain is `https://billguard.kyuruki.cc`.
+  mark or tagline changes. The canonical domain is `https://medbill.kyuruki.cc`.
 
 ## Working docs
 

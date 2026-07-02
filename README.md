@@ -4,7 +4,7 @@ Upload a medical or dental bill and check whether its charges are above CMS Medi
 reference rates. If they are, generate a formal dispute letter in one click. Free,
 anonymous, and nothing you upload is stored.
 
-**Live:** https://billguard.kyuruki.cc
+**Live:** https://medbill.kyuruki.cc
 
 ## What it does
 

@@ -14,7 +14,7 @@ function reqWithOrigin(origin) {
 describe("allowedOrigins", () => {
   it("returns the defaults when ALLOWED_ORIGINS is unset", () => {
     delete process.env.ALLOWED_ORIGINS;
-    expect(allowedOrigins()).toContain("https://billguard.kyuruki.cc");
+    expect(allowedOrigins()).toContain("https://medbill.kyuruki.cc");
   });
 
   it("parses a comma-separated override, trimming blanks", () => {
@@ -29,7 +29,7 @@ describe("originAllowed", () => {
   });
 
   it("accepts an origin on the allowlist", () => {
-    expect(originAllowed(reqWithOrigin("https://billguard.kyuruki.cc"))).toBe(true);
+    expect(originAllowed(reqWithOrigin("https://medbill.kyuruki.cc"))).toBe(true);
   });
 
   it("accepts any https subdomain of the owned custom domain", () => {
