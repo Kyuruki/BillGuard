@@ -16,14 +16,14 @@ export default function About() {
           invisible until the bill arrives, and the same procedure can cost wildly different amounts.
         </p>
         <p>
-          BillGuard exists to give you one honest reference point: what Medicare pays for the same code. It's not the
+          MedBill Analyzer exists to give you one honest reference point: what Medicare pays for the same code. It's not the
           whole story, but it's a solid place to start a conversation with a billing department, backed by public data
           rather than a hunch.
         </p>
         <p>
           It's deliberately small and transparent. It reads your bill, compares codes to official CMS fee schedules, and
           shows its work. No accounts, no stored data, no AI guessing at your numbers. The only AI involved writes the
-          optional dispute letter, from figures BillGuard has already verified.
+          optional dispute letter, from figures MedBill Analyzer has already verified.
         </p>
       </div>
 

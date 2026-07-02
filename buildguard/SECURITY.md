@@ -1,12 +1,12 @@
-# Security & Data Handling — BillGuard
+# Security & Data Handling — MedBill Analyzer
 
-This document describes BillGuard's security model, the endpoint contract, rate limits,
+This document describes MedBill Analyzer's security model, the endpoint contract, rate limits,
 and how uploaded data is handled. It reflects the state after the hardening effort (see
 `SECURITY_FINDINGS.md` for the pre-fix baseline).
 
 ## Threat model in brief
 
-BillGuard is **anonymous by design** — no accounts, no login, no stored user data. The
+MedBill Analyzer is **anonymous by design** — no accounts, no login, no stored user data. The
 assets worth protecting are therefore not user credentials but:
 - **the operator's paid API budget** (the Anthropic key used for letters),
 - **backend availability** (OCR/rendering compute on Modal), and
@@ -23,7 +23,7 @@ Browser ──(same-origin fetch)──▶ Vercel /api proxy ──(X-Proxy-Secr
   `X-Proxy-Secret` header (value = `PROXY_SHARED_SECRET`). Modal verifies it with a
   constant-time compare and returns **403** otherwise. The check **fails closed**: if the
   secret is not configured, Modal returns **503** rather than accepting everyone (local
-  dev can opt out with `ALLOW_UNAUTHENTICATED_PROXY=1`).
+  dev can opt out with `DANGEROUSLY_ALLOW_UNAUTHENTICATED_PROXY=1`).
 - **The proxy rejects browser cross-origin requests** via an Origin allowlist
   (`lib/proxy.js`): the custom domain (`*.kyuruki.cc`) and this project's own Vercel
   hosts. Requests with no `Origin` (server-to-server) pass this gate — the shared secret
@@ -100,7 +100,7 @@ The OCR-derived and client-supplied text is **untrusted input**. The letter endp
 ## Data-handling / privacy policy
 
 - **In-memory only.** The upload is read into memory and discarded when the request ends.
-  BillGuard **does not persist** the bill image, the extracted text, or any personal/health
+  MedBill Analyzer **does not persist** the bill image, the extracted text, or any personal/health
   information to disk or a database, anywhere in the pipeline. PDF rendering is in-memory
   (PyMuPDF); nothing touches disk.
 - **No accounts, no history, no tracking profile.** IPs are used transiently for rate

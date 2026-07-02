@@ -1,11 +1,11 @@
-# CLAUDE.md — BillGuard
+# CLAUDE.md — MedBill Analyzer
 
-> Source of truth for how BillGuard is built, run, and deployed. Keep this current
+> Source of truth for how MedBill Analyzer is built, run, and deployed. Keep this current
 > as the code changes. Last updated: Phase 0 recon (2026-06-30).
 
 ## What it is
 
-BillGuard is an **anonymous** medical/dental bill analyzer. A user uploads a bill
+MedBill Analyzer is an **anonymous** medical/dental bill analyzer. A user uploads a bill
 image or PDF; the app OCRs it, extracts CPT/HCPCS billing codes and dollar amounts,
 compares each code to CMS Medicare reference rates, flags overcharges, and can
 generate a formal dispute letter.
@@ -72,8 +72,9 @@ Letter flow is analogous: `Upload.jsx` → `POST /api/generate-letter` (JSON) �
 `buildguard/api/generate-letter.js` → Modal `generate_letter` → Anthropic Claude.
 
 **The Vercel `/api` proxy exists to keep the Modal URL off the client.** All Modal
-calls must go through it. (Today the Modal endpoints are still publicly reachable
-and unauthenticated — see SECURITY_FINDINGS.md; hardening this is a Phase 1 goal.)
+calls must go through it. Modal endpoints are still public `*.modal.run` URLs, but
+every POST endpoint now requires the `X-Proxy-Secret` shared-secret header (see
+"Endpoints" below and SECURITY_FINDINGS.md H2, fixed in Phase 1).
 
 ## The two-stage pipeline (KEEP this design)
 
@@ -107,8 +108,11 @@ and unauthenticated — see SECURITY_FINDINGS.md; hardening this is a Phase 1 go
 ## Endpoints
 
 All Modal POST endpoints require the shared-secret header **`X-Proxy-Secret`**
-(value = `PROXY_SHARED_SECRET`) — the proxy sends it; direct callers are rejected 403.
-Enforced only when the secret is configured (fail-open with a warning otherwise).
+(value = `PROXY_SHARED_SECRET`) — the proxy sends it; direct callers with a wrong or
+missing secret are rejected 403. This check **fails closed**: if `PROXY_SHARED_SECRET`
+is not configured, the endpoint returns 503 rather than accepting everyone. Local dev
+without the secret must opt in explicitly via `DANGEROUSLY_ALLOW_UNAUTHENTICATED_PROXY=1`
+(logs a `critical` line every time it's used).
 
 Modal (workspace `kyuruki`, app `billguard`):
 - `POST https://kyuruki--billguard-analyze.modal.run` — **raw file bytes as the request

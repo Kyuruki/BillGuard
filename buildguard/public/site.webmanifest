@@ -1,6 +1,6 @@
 {
-  "name": "BillGuard",
-  "short_name": "BillGuard",
+  "name": "MedBill Analyzer",
+  "short_name": "MedBill",
   "description": "Check your medical bill against CMS Medicare reference rates and draft a dispute letter.",
   "start_url": "/",
   "scope": "/",

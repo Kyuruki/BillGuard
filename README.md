@@ -1,4 +1,4 @@
-# BillGuard
+# MedBill Analyzer
 
 Upload a medical or dental bill and check whether its charges are above CMS Medicare
 reference rates. If they are, generate a formal dispute letter in one click. Free,
@@ -18,7 +18,7 @@ anonymous, and nothing you upload is stored.
    the dollar overcharge, and a status (Overcharged / Within range / Unverified).
 6. **Dispute letter**: if verified overcharges are found, Claude drafts a professional,
    first-person dispute letter you can copy or download. Overcharges are re-verified
-   server-side, so the letter only cites figures BillGuard confirmed against CMS data.
+   server-side, so the letter only cites figures MedBill Analyzer confirmed against CMS data.
 
 Codes not found in either fee schedule are flagged **Unverified**; the app never asserts
 an overcharge it can't confirm.
@@ -121,7 +121,7 @@ accounts. See the Privacy page and [SECURITY.md](buildguard/SECURITY.md).
 
 ## Disclaimer
 
-BillGuard is an informational tool, **not** legal, medical, or financial advice, and is not
+MedBill Analyzer is an informational tool, **not** legal, medical, or financial advice, and is not
 affiliated with CMS, Medicare, or any insurer. Medicare reference rates are a benchmark,
 not a statement of what you owe, and a charge above the reference rate can be legitimate.
 Always verify against your own bill and plan before acting.

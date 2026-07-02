@@ -35,9 +35,9 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur">
       <Container className="flex h-16 items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-2 rounded-md text-ink" aria-label="BillGuard home">
+        <Link to="/" className="flex items-center gap-2 rounded-md text-ink" aria-label="MedBill Analyzer home">
           <BrandMark className="h-7 w-7 text-brand-600" />
-          <span className="text-lg font-semibold tracking-tight">BillGuard</span>
+          <span className="text-lg font-semibold tracking-tight">MedBill Analyzer</span>
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-7 md:flex">

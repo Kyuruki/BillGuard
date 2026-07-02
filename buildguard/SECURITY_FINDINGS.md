@@ -1,4 +1,4 @@
-# SECURITY_FINDINGS.md — BillGuard (pre-fix baseline)
+# SECURITY_FINDINGS.md — MedBill Analyzer (pre-fix baseline)
 
 > Baseline audit of the code **as it exists before Phase 1 hardening**. This is the
 > "before" snapshot; fixes are tracked in `PLAN.md` and will be recorded in

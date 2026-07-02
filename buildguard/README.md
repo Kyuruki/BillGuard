@@ -1,6 +1,6 @@
-# BillGuard app
+# MedBill Analyzer app
 
-This folder contains the BillGuard application (frontend, `/api` proxy, and the Modal
+This folder contains the MedBill Analyzer application (frontend, `/api` proxy, and the Modal
 `backend.py`).
 
 - **Project overview, setup, and deploy steps:** see the [root README](../README.md).

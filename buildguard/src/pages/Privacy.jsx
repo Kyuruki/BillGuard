@@ -16,7 +16,7 @@ export default function Privacy() {
         <Eyebrow>Privacy</Eyebrow>
         <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">How your bill is handled</h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-          BillGuard is built to hold as little of your data as possible. Health-adjacent information deserves that.
+          MedBill Analyzer is built to hold as little of your data as possible. Health-adjacent information deserves that.
         </p>
       </div>
 
@@ -24,7 +24,7 @@ export default function Privacy() {
         <Section title="Your upload is processed in memory, then discarded">
           <p>
             When you analyze a bill, the file is read in memory to extract text and billing codes, and then discarded
-            when the request ends. BillGuard does <strong className="font-semibold text-ink">not</strong> save your bill
+            when the request ends. MedBill Analyzer does <strong className="font-semibold text-ink">not</strong> save your bill
             image, the extracted text, or any personal or health information to disk or a database.
           </p>
         </Section>
@@ -43,10 +43,14 @@ export default function Privacy() {
             the letter. The bill image itself is never sent. If you'd rather not use a third-party service, you can stop
             after the results table and write your own letter.
           </p>
+          <p>
+            MedBill Analyzer does not store that letter request or the names in it. What Anthropic itself retains
+            for that single API call is governed by Anthropic's own data-handling policies, not by MedBill Analyzer.
+          </p>
         </Section>
 
         <Callout tone="warn" title="Informational only" className="mt-10">
-          BillGuard is not legal, medical, or financial advice, and is not affiliated with CMS, Medicare, or any insurer.
+          MedBill Analyzer is not legal, medical, or financial advice, and is not affiliated with CMS, Medicare, or any insurer.
           Medicare reference rates are a benchmark, not a statement of what you owe. Verify against your own bill and
           plan before acting.
         </Callout>
