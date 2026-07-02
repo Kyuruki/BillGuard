@@ -1,4 +1,4 @@
-"""BillGuard Modal backend.
+"""MedBill Analyzer Modal backend.
 
 Two-stage bill-analysis pipeline plus a Claude-powered dispute-letter endpoint.
 
@@ -107,12 +107,15 @@ def verify_proxy(request: Request) -> None:
     Fails CLOSED: if PROXY_SHARED_SECRET is not configured the endpoint returns
     503 rather than silently accepting everyone (a mistyped secret key would
     otherwise reopen the H2 trust boundary). Local dev without the secret must
-    opt in explicitly with ALLOW_UNAUTHENTICATED_PROXY=1.
+    opt in explicitly with DANGEROUSLY_ALLOW_UNAUTHENTICATED_PROXY=1.
     """
     expected = os.environ.get("PROXY_SHARED_SECRET")
     if not expected:
-        if os.environ.get("ALLOW_UNAUTHENTICATED_PROXY") == "1":
-            logger.warning("PROXY_SHARED_SECRET unset and ALLOW_UNAUTHENTICATED_PROXY=1; proxy auth DISABLED")
+        if os.environ.get("DANGEROUSLY_ALLOW_UNAUTHENTICATED_PROXY") == "1":
+            logger.critical(
+                "AUTH DISABLED: DANGEROUSLY_ALLOW_UNAUTHENTICATED_PROXY is set — "
+                "all proxy authentication is bypassed"
+            )
             return
         logger.error("PROXY_SHARED_SECRET is not configured; refusing requests")
         raise HTTPException(status_code=503, detail="Server temporarily unavailable.")
@@ -551,4 +554,4 @@ async def generate_letter(request: Request):
 @modal.fastapi_endpoint()
 def health():
     """Public liveness probe."""
-    return {"status": "ok", "message": "BillGuard Modal alive"}
+    return {"status": "ok", "message": "MedBill Analyzer Modal alive"}

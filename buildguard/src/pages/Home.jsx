@@ -15,7 +15,7 @@ export default function Home() {
               <span className="text-brand-700">overcharged you.</span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
-              Upload a bill and BillGuard checks every billing code against official CMS Medicare reference rates. It
+              Upload a bill and MedBill Analyzer checks every billing code against official CMS Medicare reference rates. It
               flags what's charged above the benchmark, then drafts a dispute letter you can send.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -68,7 +68,7 @@ export default function Home() {
               actually costs, which makes them a fair yardstick for a charge with no context.
             </p>
             <p className="leading-relaxed">
-              BillGuard only flags codes it can confirm in the CMS data, and never calls a charge an overcharge it
+              MedBill Analyzer only flags codes it can confirm in the CMS data, and never calls a charge an overcharge it
               can't verify. A flag isn't an accusation. It's a reason to ask for an itemized justification.
             </p>
             <p>

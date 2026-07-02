@@ -21,7 +21,7 @@ export default function Faq() {
         <Eyebrow>FAQ</Eyebrow>
         <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Questions, answered plainly</h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-          What BillGuard does, what it doesn't, and how your bill is handled.
+          What MedBill Analyzer does, what it doesn't, and how your bill is handled.
         </p>
       </div>
 

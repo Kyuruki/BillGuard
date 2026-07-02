@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="max-w-sm">
             <Link to="/" className="flex items-center gap-2 rounded-md text-ink">
               <BrandMark className="h-6 w-6 text-brand-600" />
-              <span className="text-base font-semibold tracking-tight">BillGuard</span>
+              <span className="text-base font-semibold tracking-tight">MedBill Analyzer</span>
             </Link>
             <p className="mt-3 text-sm leading-relaxed text-ink-soft">
               A second opinion on your medical bill. Check charges against CMS Medicare reference rates.

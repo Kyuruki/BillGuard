@@ -104,14 +104,14 @@ class TestLineItemValidation:
 class TestVerifyProxy:
     def test_fails_closed_when_secret_unconfigured(self, monkeypatch):
         monkeypatch.delenv("PROXY_SHARED_SECRET", raising=False)
-        monkeypatch.delenv("ALLOW_UNAUTHENTICATED_PROXY", raising=False)
+        monkeypatch.delenv("DANGEROUSLY_ALLOW_UNAUTHENTICATED_PROXY", raising=False)
         with pytest.raises(HTTPException) as exc:
             backend.verify_proxy(make_request())
         assert exc.value.status_code == 503
 
     def test_explicit_dev_optout_allows_unauthenticated(self, monkeypatch):
         monkeypatch.delenv("PROXY_SHARED_SECRET", raising=False)
-        monkeypatch.setenv("ALLOW_UNAUTHENTICATED_PROXY", "1")
+        monkeypatch.setenv("DANGEROUSLY_ALLOW_UNAUTHENTICATED_PROXY", "1")
         backend.verify_proxy(make_request())  # must not raise
 
     def test_rejects_wrong_or_missing_secret(self, monkeypatch):

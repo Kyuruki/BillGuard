@@ -8,7 +8,7 @@ export default function HowItWorks() {
         <Eyebrow>How it works</Eyebrow>
         <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">From photo to dispute letter</h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-          BillGuard runs a simple, transparent pipeline. No AI decides what you were overcharged. The numbers come from
+          MedBill Analyzer runs a simple, transparent pipeline. No AI decides what you were overcharged. The numbers come from
           your bill and from official CMS fee schedules.
         </p>
       </div>

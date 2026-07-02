@@ -8,7 +8,7 @@ import { PAGE_META, SITE } from "../content.js";
 export default function Seo() {
   const { pathname } = useLocation();
   const known = Object.prototype.hasOwnProperty.call(PAGE_META, pathname);
-  const title = known ? PAGE_META[pathname].title : "Page not found | BillGuard";
+  const title = known ? PAGE_META[pathname].title : "Page not found | MedBill Analyzer";
   const canonical = known ? SITE.url + (pathname === "/" ? "" : pathname) : SITE.url;
 
   return (

@@ -1,4 +1,4 @@
-// BillGuard mark: a shield (guard) whose interior forms a downward "check your
+// MedBill Analyzer mark: a shield whose interior forms a downward "check your
 // charge" tick / ledger checkmark. Inherits currentColor. Decorative when paired
 // with the wordmark, so it's aria-hidden at call sites.
 export default function BrandMark({ className = "" }) {

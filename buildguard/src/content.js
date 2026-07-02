@@ -2,7 +2,7 @@
 // Reused by pages, the layout (route titles), and Phase 4 JSON-LD (FAQ/steps).
 
 export const SITE = {
-  name: "BillGuard",
+  name: "MedBill Analyzer",
   tagline: "A second opinion on your medical bill.",
   description:
     "Upload a medical or dental bill and check its charges against official CMS Medicare reference rates. See likely overcharges and draft a dispute letter.",
@@ -20,34 +20,34 @@ export const NAV = [
 // screen-reader route announcement). Keep titles ≤ ~60 chars, descriptions ≤ ~160.
 export const PAGE_META = {
   "/": {
-    title: "BillGuard: Check your medical bill against Medicare rates",
+    title: "MedBill Analyzer: Check your medical bill against Medicare rates",
     description:
       "Upload a medical or dental bill and check its charges against official CMS Medicare reference rates. See likely overcharges and draft a dispute letter. Free, anonymous, nothing stored.",
   },
   "/analyze": {
-    title: "Analyze a bill | BillGuard",
+    title: "Analyze a bill | MedBill Analyzer",
     description:
       "Upload a bill to check every code against CMS Medicare reference rates, see likely overcharges, and generate a dispute letter. Processed in memory, never stored.",
   },
   "/how-it-works": {
-    title: "How it works | BillGuard",
+    title: "How it works | MedBill Analyzer",
     description:
-      "How BillGuard reads your bill: OCR extracts the codes and charges, then compares each to two official CMS fee schedules. No AI guesses at your numbers.",
+      "How MedBill Analyzer reads your bill: OCR extracts the codes and charges, then compares each to two official CMS fee schedules. No AI guesses at your numbers.",
   },
   "/faq": {
-    title: "FAQ | BillGuard",
+    title: "FAQ | MedBill Analyzer",
     description:
-      "Answers about how BillGuard flags overcharges, what CMS Medicare reference rates mean, how your bill is handled, and whether it's affiliated with Medicare.",
+      "Answers about how MedBill Analyzer flags overcharges, what CMS Medicare reference rates mean, how your bill is handled, and whether it's affiliated with Medicare.",
   },
   "/privacy": {
-    title: "Privacy | BillGuard",
+    title: "Privacy | MedBill Analyzer",
     description:
-      "How BillGuard handles your bill: processed in memory and discarded, with no accounts and nothing stored. Health-adjacent data is kept to a minimum.",
+      "How MedBill Analyzer handles your bill: processed in memory and discarded, with no accounts and nothing stored. Health-adjacent data is kept to a minimum.",
   },
   "/about": {
-    title: "About | BillGuard",
+    title: "About | MedBill Analyzer",
     description:
-      "Why BillGuard exists: an independent, transparent tool that checks medical bills against public CMS Medicare rates so you can question charges with confidence.",
+      "Why MedBill Analyzer exists: an independent, transparent tool that checks medical bills against public CMS Medicare rates so you can question charges with confidence.",
   },
 };
 
@@ -55,7 +55,7 @@ export const DEFAULT_META = PAGE_META["/"];
 
 // The disclaimer. Used in the footer, the tool, and Privacy.
 export const DISCLAIMER =
-  "BillGuard is an informational tool, not legal, medical, or financial advice. It is not affiliated with CMS, Medicare, or any insurer. Medicare reference rates are a benchmark, not a statement of what you owe. Verify against your own bill and plan before acting.";
+  "MedBill Analyzer is an informational tool, not legal, medical, or financial advice. It is not affiliated with CMS, Medicare, or any insurer. Medicare reference rates are a benchmark, not a statement of what you owe. Verify against your own bill and plan before acting.";
 
 // How-it-works steps, in order.
 export const STEPS = [
@@ -83,12 +83,12 @@ export const STEPS = [
 
 export const FAQ = [
   {
-    q: "What does BillGuard actually do?",
+    q: "What does MedBill Analyzer actually do?",
     a: "It reads the billing codes and charges off your bill, looks each code up in official CMS Medicare fee schedules, and shows you where a charge sits well above that reference rate. If it finds overcharges, it can draft a dispute letter for you to review and send.",
   },
   {
     q: "How does it decide something is an overcharge?",
-    a: "For each 5-digit CPT/HCPCS code on your bill, it compares the amount charged to the CMS Medicare reference rate for that same code. When the charge is meaningfully higher than the reference rate, the line is flagged. BillGuard only flags codes it can confirm in the CMS data.",
+    a: "For each 5-digit CPT/HCPCS code on your bill, it compares the amount charged to the CMS Medicare reference rate for that same code. When the charge is meaningfully higher than the reference rate, the line is flagged. MedBill Analyzer only flags codes it can confirm in the CMS data.",
   },
   {
     q: "What are CMS Medicare reference rates?",
@@ -96,11 +96,11 @@ export const FAQ = [
   },
   {
     q: "Is my bill stored anywhere?",
-    a: "No. Your upload is processed in memory to read the text, then discarded. BillGuard does not save your bill image, the extracted text, or any personal or health information to disk or a database. There are no accounts.",
+    a: "No. Your upload is processed in memory to read the text, then discarded. MedBill Analyzer does not save your bill image, the extracted text, or any personal or health information to disk or a database. There are no accounts.",
   },
   {
     q: "Why are some codes marked 'Unverified'?",
-    a: "Not every code appears in the CMS fee schedules BillGuard checks (for example, some facility fees or bundled items). When a code isn't in the data, BillGuard marks it Unverified rather than guessing. It never asserts an overcharge it can't confirm.",
+    a: "Not every code appears in the CMS fee schedules MedBill Analyzer checks (for example, some facility fees or bundled items). When a code isn't in the data, MedBill Analyzer marks it Unverified rather than guessing. It never asserts an overcharge it can't confirm.",
   },
   {
     q: "Does an overcharge mean I was defrauded?",
@@ -115,7 +115,7 @@ export const FAQ = [
     a: "A PNG, JPEG, or PDF up to 20 MB (PDFs up to 30 pages). Clearer scans and photos read more accurately.",
   },
   {
-    q: "Is BillGuard affiliated with Medicare or my insurer?",
-    a: "No. BillGuard is an independent, informational tool. It is not affiliated with, endorsed by, or connected to CMS, Medicare, or any insurance company.",
+    q: "Is MedBill Analyzer affiliated with Medicare or my insurer?",
+    a: "No. MedBill Analyzer is an independent, informational tool. It is not affiliated with, endorsed by, or connected to CMS, Medicare, or any insurance company.",
   },
 ];
